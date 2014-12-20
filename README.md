@@ -4,10 +4,10 @@ Example usage: Wrap Pub-Sub ZeroMQ socket as a channel, use it in `for` and `sel
 package main
 
 import (
-  "encoding/hex"
-  "fmt"
-  "github.com/herrfz/devreader"
-  zmq "github.com/pebbe/zmq4"
+	"encoding/hex"
+	"fmt"
+	"github.com/herrfz/devreader"
+	zmq "github.com/pebbe/zmq4"
 )
 
 type Socket struct {
@@ -27,7 +27,7 @@ func main() {
 	sock.SetSubscribe("") // subscribe to all
 
 	data_ch := devreader.MakeChannel(Socket{sock}) // Wrap sock as data_ch
-	
+
 	for {
 		select {
 		case buf := <-data_ch:
