@@ -5,7 +5,7 @@ type DeviceReader interface {
 	ReadDevice() ([]byte, error)
 }
 
-func MakeChannel(dev DeviceReader) <-chan []byte {
+func MakeChannel(dev DeviceReader) chan []byte {
 	c := make(chan []byte)
 	go func() {
 		for {
